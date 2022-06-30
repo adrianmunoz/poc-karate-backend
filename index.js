@@ -13,6 +13,7 @@ app.use( cors() );
 app.use( express.json() );
 app.use( '/api' , require('./routes/karate-route'));
 
+const port  = process.env.PORT || 80;
 
 https.createServer( {
                     key: fs.readFileSync("certificates/key.pem"),
@@ -20,8 +21,8 @@ https.createServer( {
                   },
                   app
                 )
-.listen(process.env.PORT, () => {
+.listen(port, () => {
 
-    console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
+    console.log(`Servidor corriendo en puerto ${port}`);
 
 })
