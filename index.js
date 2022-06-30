@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const https = require("https");
+const http = require("http");
 
 require('dotenv').config();
 
@@ -15,11 +14,7 @@ app.use( '/api' , require('./routes/karate-route'));
 
 const port  = process.env.PORT || 80;
 
-https.createServer( {
-                    key: fs.readFileSync("certificates/key.pem"),
-                    cert: fs.readFileSync("certificates/cert.pem"),
-                  },
-                  app
+http.createServer( app
                 )
 .listen(port, () => {
 
