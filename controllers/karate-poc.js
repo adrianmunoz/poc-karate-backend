@@ -5,7 +5,7 @@ const {response} = require('express');
 
 const karatePocCaso1 = (req, res) => {
 
-    console.log('Request from caso1');
+    console.log('Request from caso1.1');
     return res.json({
         ok:true,
         msg:'Caso1'
